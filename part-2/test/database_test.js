@@ -8,8 +8,16 @@ describe( 'getAll()', ()=> {
       console.log('these are the results shoppers', results)
       expect(results[0].guest_name).to.equal('John Doe')
       expect(results[1].guest_name).to.equal('Jon Dough')
-      // expect(results[1].number_of_orders).to.equal(5)
-      // expect(results[0]["number_of_orders"]).to.equal(2)
+    })
+  })
+})
+describe( 'getAllRooms()', ()=> {
+  it( 'List every guest for hotel', ()=> {
+    return query.getAllRooms()
+    .then( results => {
+      console.log('these are the results shoppers', results)
+      expect(results[0].roomnumber).to.equal('101')
+      expect(results[1].roomnumber).to.equal('102')
     })
   })
 })
