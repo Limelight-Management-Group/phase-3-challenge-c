@@ -12,7 +12,7 @@ const query = {
   },
 getAllBookedRooms(guest_id){
     return db.any(`
-      SELECT bookings.check_in, bookings.check_out, bookings.room_id, bookings.guest_id, guests.name
+      SELECT bookings.check_in, bookings.check_out, bookings.room_id, bookings.guest_id, guests.name, rooms.capacity
       FROM guests
       JOIN bookings
       ON guests.id = bookings.guest_id
