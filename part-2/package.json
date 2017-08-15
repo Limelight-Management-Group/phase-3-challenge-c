@@ -5,7 +5,12 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha",
-    "start": "nodemon app"
+    "start": "nodemon app",
+    "db": "dropdb hotel_db; createdb hotel_db; psql hotel_db < ./schema.sql; psql hotel_db < ./load-data.sql",
+    "drop": "dropdb hotel_db",
+    "create": "createdb hotel_db",
+    "schema": "psql hotel_db < ./schema.sql",
+    "seed": "psql hotel_db < ./load-data.sql"
   },
   "author": "Wayne Banks",
   "license": "ISC",

@@ -1,27 +1,26 @@
-DROP DATABASE IF EXISTS hotel_db;
-CREATE DATABASE hotel_db;
-
-\c hotel_db
 
 CREATE TABLE IF NOT EXISTS guests(
   id SERIAL PRIMARY KEY,
-  Guest_Name  VARCHAR(140),
-  Email VARCHAR(140)
+  name VARCHAR(140) NOT NULL,
+  email VARCHAR(140) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS rooms(
   id SERIAL PRIMARY KEY,
-  RoomNumber VARCHAR(140),
-  Capacity VARCHAR(140),
-  Available boolean DEFAULT true
+  room_number VARCHAR(140) NOT NULL,
+  capacity VARCHAR(140) NOT NULL,
+  available boolean DEFAULT true 
 );  
 
 
 CREATE TABLE IF NOT EXISTS bookings(
   id SERIAL PRIMARY KEY,
-  room_id VARCHAR,
-  guest_id INTEGER,
-  check_in DATE,
-  check_out DATE
+  room_id INTEGER NOT NULL,
+  guest_id INTEGER NOT NULL,
+  check_in DATE NOT NULL,
+  check_out DATE NOT NULL
+  -- ,
+  -- FOREIGN KEY (room_id) REFERENCES rooms(id),
+  -- FOREIGN KEY (guest_id) REFERENCES guests(id)
 )
 
