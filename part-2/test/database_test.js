@@ -27,7 +27,6 @@ describe( 'getAllBookedRooms()', ()=> {
     .then( results => {
       console.log('these are the results booked rooms', results)
       expect(results[0].name).to.equal('Aurthur Velti')
-      expect(results[1].room_id).to.equal(4)
-    })
+      expect(results[1].room_id).to.equal(4) })
   })
 })
