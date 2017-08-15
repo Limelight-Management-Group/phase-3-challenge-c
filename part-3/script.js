@@ -27,15 +27,16 @@ function getElement(elmSel) {
 }
 
 let closeButton = getElement(".modal-close")
-console.log('this is the close ----->:',closeButton)   
+console.log('this is the close------>:', closeButton)   
 
 let buttons = getElements(".cart-button");
-console.log('this is the button----->:', buttons)
+console.log('these are the buttons----->:', buttons)
 
 buttons.forEach((button) =>{
   console.log(button)
-    addEventListener('click', openModal)
+    button.addEventListener('click', openModal)
 })
+
 function openModal(){
   console.log('this is opening!')
   modal.classList.add('modal-open')
@@ -82,9 +83,9 @@ function closeModal(){
 //   console.log('this is working, dawg!!')
 // }
 
-function closeModal(){
-  console.log('I am in the close')
-  modal.classList.remove('modal-open')
-  modal.classList.remove('hide-overlay')
-} 
+// function closeModal(){
+//   console.log('I am in the close')
+//   modal.classList.remove('modal-open')
+//   modal.classList.remove('hide-overlay')
+// } 
 
