@@ -27,29 +27,29 @@ let guests = () => {
 }
 
 let rooms = () => {
-  let roomLength = `Room #`.length
-  let capacityLength = `Capacity`.length
-  let availableLength = `Available`.length
-  console.log(`|--------+----------+-----------|`)
-  console.log(`| Room # | Capacity | Available |`)
-  console.log(`|--------+----------+-----------|`)
+  let roomLength = `room_number`.length
+  let capacityLength = `capacity`.length
+  let availableLength = `available`.length
+  console.log(`|--------------+--------+---------|`)
+  console.log(`| Available  | Capacity | Room # |`)
+  console.log(`|--------------+--------+---------|`)
   let list = query.getAllRooms()
     .then( rooms => {
-      console.log('da rooms', rooms)
+      // console.log('da rooms', rooms)
       rooms.map( room => {
-        console.log('this is the room',room)
+        // console.log('this is the room',room)
         console.log("| " +
-          (" ").repeat( idLength - room.id.toString().length) +
-          room.room_number +
+          (" ").repeat( availableLength - room.available.length) +
+          room.available +
            " | " +
           room.capacity +
-          (" ").repeat( roomNameLength - room.guest_name.length) +
+          (" ").repeat( roomLength - room.room_number.length) +
            " | " +
-          room.available +
-          (" ").repeat(emailLength - room.email.length) + " | ")
+          room.room_number +
+          (" ").repeat(capacityLength - room.capacity.length) + " | ")
       })
     })
-    .then( ()=> console.log( `|--------+----------+-----------|` ) )
+    .then( ()=> console.log( `|---------+-----------+-----------|` ) )
 }
 
 let ordersById = argument => {
