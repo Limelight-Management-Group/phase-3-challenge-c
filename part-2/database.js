@@ -5,12 +5,12 @@ const db = pgp(connectionString);
 
 const query = {
   getAll(){
-    return db.any('SELECT name from guests')
+    return db.any('SELECT name, id, email from guests')
   },
   getAllRooms(){
-    return db.any('SELECT room_number from rooms')
+    return db.any('SELECT room_number, capacity, available FROM rooms WHERE available = $1',[true])
   },
-getAllBookedRooms(guest_id){
+  getAllBookedRooms(guest_id){
     return db.any(`
       SELECT bookings.check_in, bookings.check_out, bookings.room_id, bookings.guest_id, guests.name, rooms.capacity
       FROM guests
@@ -20,7 +20,7 @@ getAllBookedRooms(guest_id){
       ON rooms.id = bookings.room_id
       WHERE guest_id = $1
     `,[guest_id])
-  }
+   }
 /*
 
 As a hotel manager I can see 
